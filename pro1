@@ -1,0 +1,60 @@
+#include <stdio.h>
+int a[10],n;
+int check(int i)
+{
+    int f=0;
+    for(int j=i;j<n;j++)
+    {
+        if(a[j]%10!=0)
+        {
+            f=1;
+        }
+    }
+    return f;
+}
+void swap(int a[10],int i,int n)
+{
+    int t;
+    if(a[n-1]%10!=0)
+    {
+        t=a[i];
+        a[i]=a[n-1];
+        a[n-1]=t;
+    }
+    else{
+        swap(a,i,n-1);
+    }
+    print();
+    printf("\n");
+}
+
+void print()
+{
+    for(int i=0;i<n;i++)
+    {
+        printf(" %d ",a[i]);
+    }
+}
+int main()
+{
+   
+   printf("enter the no.of elements\n");
+   scanf("%d",&n);
+   int m=n;
+   for(int i=0;i<n;i++)
+   {
+       printf("enter element\n");
+       scanf("%d",&a[i]);
+   }
+   
+   for(int i=0;i<m;i++)
+   {
+       if(a[i]%10==0 && check(i)==1)
+       {
+           swap(a,i,m);
+       }
+   }
+   print();
+   
+   
+}
